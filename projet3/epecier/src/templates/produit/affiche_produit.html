@@ -1,0 +1,80 @@
+{% extends "layout/base_dashboard.html" %}
+{% block title %}Gestion produit{% endblock %}
+{% block content %}
+
+<div class="d-flex h-100  align-items-center justify-content-center">
+    <div class="row p-0 m-0 ">
+        <div class="col"> </div>
+        <!-- card show pruductd-->
+        <div class="col-10 cardStyle p-5">
+            <div class="row p-0 m-0 my-5 ">
+                <div class="col-9"></div>
+                <div class="col-3 cardStyle ">
+                    <div class="row d-flex justify-content-between ">
+                        <a href="/ajoute/produit" class="text-center py-2 col-6  py-2 ">Créer</a>
+                        <a href="/affiche/produit/" style="padding-right:30px ;padding-left: 30px;"
+                            class="text-center py-2 col-6  py-2 active">Gérer</a>
+                    </div>
+                </div>
+
+                <div class="col"></div>
+
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <h1 class="cardTitle">Consultez vos Produits</h1>
+                </div>
+                <div class="col-4">
+                    <form action="/produits/search">
+                        <div class="input-group position-relative ">
+                            <input type="text" name="name" value="{{search}}" class="form-control " placeholder="Trouvez Produits"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append position-absolute  " style="right:10px !important">
+                                <button class="btn my-1 py-0" type="button">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="mt-5 col-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Commentaire</th>
+                                <th scope="col">Prix</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for produit in produits %}
+                            <tr>
+                                <td><img src="/static/{{produit.image}}" alt="image-produit" srcset=""></td>
+                                <td>{{produit.nom}}</td>
+                                <td>{{produit.commentaire}}</td>
+                                <td>{{produit.prix}}</td>
+                                <td>
+                                    <a href="/edit/produit/{{produit.id}}">
+                                        <button class="btn my-1 py-0" type="button">Editer</button>
+                                    </a>
+                                    <a href="/delete/produit/{{produit.id}}">
+                                        <button class="btn my-1 py-0" type="button">Supprimer</button>
+                                    </a>
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- end card show pruductd-->
+
+        <div class="col"> </div>
+
+    </div>
+</div>
+{% endblock %}

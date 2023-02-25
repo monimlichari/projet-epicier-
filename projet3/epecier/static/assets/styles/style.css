@@ -1,0 +1,183 @@
+.image-left {
+    background-color: #D9D9D9;
+}
+a{
+    text-decoration: none !important;
+}
+
+.color-p {
+    color: #645CBB;
+}
+
+.bcolor-p {
+    background-color: #645CBB;
+}
+
+.button-submit {
+    background-color: #645CBB;
+    color: white;
+    width: 308px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    border: 2px solid #FFFFFF;
+}
+
+.input-form {
+    border: none;
+    background-color: #FFFBF5;
+    border-bottom: 1px solid #645CBB;
+    width: 308px;
+    outline: none;
+}
+
+.title-form {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 34px;
+    color: #645CBB;
+}
+
+.form-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.main{
+    background: #FFFBF5;
+}
+.cardTitle,tr td {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 17px;
+    color: #645CBB !important;
+}
+
+.cardStyle .active {
+    background-color: blue;
+    height: 40px;
+    color: white;
+    font-weight: 600;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 15px;
+
+}
+
+.cardStyle .active:hover{
+text-decoration: none;
+color: #FFFFFF;
+} 
+/** aside */
+.aside .item {
+    width: 100%;
+    height: 75px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFBF5;
+    border-bottom: 3px solid #FFFBF5;
+}
+
+.aside .items .active {
+    background-color: #FFFBF5;
+    color: #645CBB;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.aside .name {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    text-align: center;
+    color: #FFFBF5;
+}
+
+.aside .user-info {
+    height: 70px;
+}
+
+.logout {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 100%;
+    text-align: center;
+    color: #C22E2E;
+    background: #FFFFFF;
+}
+
+/** person 2 */
+
+.cardStyle {
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.cardTitle,tr td {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 17px;
+    color: #645CBB !important;
+}
+
+.form-control {
+    background: #FFFBF5 !important;
+    border-radius: 15px !important;
+    border: none;
+    box-shadow: none !important;
+    outline: none !important;
+
+}
+
+
+.btn {
+    background: #645CBB;
+    height: 28px !important;
+    border-radius: 15px !important;
+    color: #FFFFFF;
+    text-align: center !important;
+
+
+}
+
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #FFFBF5 !important;
+}
+
+.table td,
+.table th {
+    border-top: none !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    vertical-align: middle !important; 
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #645CBB !important;
+    border-bottom-width: 9px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(222, 226, 230);
+}
+
+thead th{
+    color:#645CBB !important;
+}
+td img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}

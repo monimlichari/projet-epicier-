@@ -1,0 +1,73 @@
+{% extends "layout/base_dashboard.html" %}
+{% block title %}Gestion produit{% endblock %}
+{% block content %}
+
+
+<div class="d-flex h-100  align-items-center justify-content-center">
+    <div class="row p-0 m-0 ">
+        <div class="col"> </div>
+        <!-- card show client-->
+        <div class="col-10 cardStyle p-5">
+            <div class="row p-0 m-0 my-5 ">
+                <div class="col-9"></div>
+                <div class="col-3 cardStyle ">
+                    <div class="row d-flex justify-content-between ">
+                        <a href="/ajoute/credit/" class="text-center py-2 col-6  py-2  ">Créer</a>
+                        <a href="/affiche/credits/" style="padding-right:30px ;padding-left: 30px;" class="text-center py-2  col-6  active">Gérer</a>
+                    </div>
+                </div>
+
+                <div class="col"></div>
+
+            </div>
+            <div class="row d-flex justify-content-center p-0">
+                <h1 class="cardTitle text-center">Affecter Un credit pour un Client </h1>
+                <form method="post" class="w-100" action="/update/credit/{{credit.id}}">
+                    {% csrf_token %}
+                    <div class="mt-5 col-12 row">
+
+                        <div style="background-color: white;" class="col-4">
+                            <select style="padding: 8px;" class="input-form" name="client">
+                                <option value="{{credit.client.id}}">{{credit.client.nom}} {{credit.client.prenom}}
+                                </option>
+                                {% for client in clients %}
+                                {% if credit.client.id != client.id %}
+                                <option value="{{client.id}}">{{client.nom}} {{client.prenom}}</option>
+                                {% endif %}
+
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div style="background-color: white;" class=" col-4">
+
+                            <select style="padding: 8px;margin-left: 10px;" class="input-form" name="produit">
+                                <option value="{{credit.produit.id}}">{{credit.produit.nom}}</option>
+                                {% for produit in produits %}
+                                {% if credit.produit.id != produit.id %}
+                                <option value="{{produit.id}}">{{produit.nom}}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div style="height: 100px;" class=" col-2 ml-2 ">
+                            <input value="{{credit.quantite}}" name="quantite" style="width:150px" class="p-2 pl-4 input-form"
+                                placeholder="Quantite" class="input-add" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8">
+                            <button class="p-2 button-submit my-2" type="submit">Editer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- end card show client-->
+
+        <div class="col"> </div>
+    </div>
+</div>
+{% endblock %}

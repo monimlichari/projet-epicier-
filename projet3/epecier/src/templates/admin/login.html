@@ -1,0 +1,31 @@
+{% extends "layout/base.html" %}
+{% block title %}Admin Login{% endblock %}
+{% block content %}
+<div class="main bcolor-p  vh-100 d-flex  align-items-center justify-content-center">
+    <div class="row h-75 w-75 ">
+        <div  style="font-size: 80px;" class="col-6 bcolor-p text-white image-left d-flex title-form  align-items-center justify-content-center">
+          Epecier
+        </div>
+        <div class="col-6 bg-white h-100 d-flex  align-items-center justify-content-center ">
+
+            <div class="form ">
+                <div class="title title-form text-center pb-4">Login</div>
+                <form method="post" action="/admin/login/">
+                    {% csrf_token %}
+                    <div class="my-2">
+                        <input class="p-2 pl-4 input-form" name="username" placeholder="Username" type="text">
+                    </div>
+                    <div class="my-4">
+                        <input class="p-2 pl-4 input-form" name="password" placeholder="Password" type="password">
+                    </div>
+                    <button class="p-2 button-submit my-2" type="submit">Se Connecter</button>
+                    <p class="form-text py-2">Vous avez un compte 
+                        <a href="/admin/register/"><span class="color-p">S’inscrire ICI</span></a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

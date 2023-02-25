@@ -1,0 +1,101 @@
+{% extends "layout/base_dashboard.html" %}
+{% block title %}Gestion produit{% endblock %}
+{% block content %}
+
+<div class="d-flex h-100  align-items-center justify-content-center">
+    <div class="row p-0 m-0 ">
+        <div class="col"> </div>
+        <!-- card show client-->
+        <div class="col-10 cardStyle p-5">
+            <div class="row p-0 m-0 my-5 ">
+                <div class="col-9"></div>
+                <div class="col-3 cardStyle ">
+                    <div class="row d-flex justify-content-between ">
+                        <a href="/ajoute/credit/" class="text-center py-2 col-6  py-2 ">Créer</a>
+                        <a href="/affiche/credits/" style="padding-right:50px ;padding-left: 30px;" class=" text-center py-2 col-6  py-2 active">Gérer</a>
+                    </div>
+                </div>
+
+                <div class="col"></div>
+
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <h1 class="cardTitle">Consultez vos Credits</h1>
+                </div>
+
+                <div class="col-4">
+                    <form action="/credits/search">
+                        <div class="input-group position-relative ">
+                            <input type="text" value="{{search}}" name="name" class="form-control " placeholder="Trouvez Clients"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append position-absolute  " style="right:10px !important">
+                                <button class="btn my-1 py-0" type="button">Search</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="mt-5 col-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Client</th>
+                                <th scope="col">Produit</th>
+                                <th scope="col">PrixUnitaire</th>
+                                <th scope="col">Qte</th>
+                                <th scope="col">Somme</th>
+                                <th scope="col">Etat</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for credit in credits %}
+                            <tr>
+                                <td>{{credit.client.nom}} {{credit.client.prenom}}</td>
+                                <td>{{credit.produit.nom}}</td>
+                                <td>{{credit.price}}</td>
+                                <td>{{credit.quantite}} </td>
+                                <td> {{credit.total}}</td>
+                                <td>
+                                    {% if credit.etat %}
+                                    paye
+                                    {% else %}
+                                    Non paye
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if not credit.etat %}
+                                    <a href="/edit/credit/{{credit.id}}">
+                                        <button class="btn my-1 py-0" type="button">Editer</button>
+                                    </a>
+                                    <a href="/paye/credit/{{credit.id}}">
+                                        <button class="btn my-1 py-0" type="button">Payer</button>
+                                    </a>
+
+
+                                    {% else %}
+                                    <a href="/delete/credit/{{credit.id}}">
+                                        <button class="btn my-1 py-0" type="button">Supprimer</button>
+                                    </a>
+
+                                    {% endif %}
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- end card show client-->
+
+        <div class="col"> </div>
+
+    </div>
+</div>
+{% endblock %}

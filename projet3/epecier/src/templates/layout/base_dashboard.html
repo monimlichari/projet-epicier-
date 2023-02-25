@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/assets/styles/style.css' %}" />
+
+</head>
+
+<body class="overflow-hidden">
+    <div class="row ">
+        <div class="vh-100 col-2 aside bcolor-p p-0">
+            <div class=" h-75 p-0 d-flex   align-items-center ">
+                <div class="items w-100">
+                    <a href="/affiche/clients/">
+                        <div class="item pl-4  d-flex align-items-center {{pageClient}}  justify-content-center">Clients</div>
+                    </a>
+                    <a href="/affiche/produit/">
+                        <div class="item pl-4 d-flex align-items-center {{pageProduct}}  justify-content-center">Produits</div>
+                    </a>
+                    <a href="/affiche/credits">
+                        <div class="item pl-4 d-flex align-items-center {{pageCredit}}  justify-content-center">Credits</div>
+                    </a>
+                </div>
+            </div>
+            <div class="h-25  d-flex align-items-end  ">
+                <div class="w-100">
+                    <div class="user-info row pl-4">
+                        <div class="img pl-4 ">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_7_340)">
+                                    <rect width="40" height="40" rx="20" fill="white" />
+                                    <rect x="12" y="6" width="16" height="16" rx="8" fill="#645CBB" />
+                                    <rect x="-10" y="27" width="60" height="60" rx="30" fill="#645CBB" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_7_340">
+                                        <rect width="40" height="40" rx="20" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="name col-8 pl-4">M. Mohamed</div>
+                    </div>
+                    <a href="/admin/logout">
+                        <div class="logout py-4  d-flex justify-content-center align-items-center">
+                            LOGOUT
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-10 main p-0 m-0">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

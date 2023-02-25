@@ -1,0 +1,65 @@
+{% extends "layout/base_dashboard.html" %}
+{% block title %}Gestion produit{% endblock %}
+{% block content %}
+
+    <div class="d-flex h-100  align-items-center justify-content-center">
+        <div class="row p-0 m-0 ">
+            <div class="col"> </div>
+            <!-- card show client-->
+            <div class="col-10 cardStyle p-5">
+                <div class="row p-0 m-0 my-5 ">
+                    <div class="col-9"></div>
+                    <div class="col-3 cardStyle ">
+                        <div class="row d-flex justify-content-between ">
+                            <a href="/ajoute/produit" class="pl-4 py-2  ">Créer</a>
+                            <a href="/affiche/produit/" style="padding-right:70px ;padding-left: 30px;"
+                                class=" pt-2 active">Gérer</a>
+                        </div>
+                    </div>
+    
+                    <div class="col"></div>
+    
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <h1 class="cardTitle text-center">Ajouter un nouveau Produit à votre carnet  </h1>
+                    
+                    <form method="post" enctype="multipart/form-data" action="/update/produit/{{produit.id}}">
+                        <div class=" d-flex justify-content-center pt-4">
+                            <img style="width:100px;height: 100px;border-radius: 50%;"  src="/static/{{produit.image}}" alt="image-produit" srcset="">
+                        </div>
+                        {% csrf_token %}
+                        <div class="mt-5 col-12 row">
+                            <div class="col-2"> </div>
+                            <div class="my-2 col-4">
+                                <input class="p-2 pl-4 input-form" value="{{produit.nom}}" name="nom" placeholder="Nom" type="text">
+                            </div>
+                            <div class="my-2 col-4">
+                                <input class="p-2 pl-4 input-form" value="{{produit.prix}}" name="prix" placeholder="Prix" type="text">
+                            </div>
+                            <div class="col-2"> </div>
+                            <div class="col-2"> </div>
+                            <div class="my-2 col-4">
+                                <input class="p-2 pl-4 input-form" value="{{produit.commentaire}}" name="commentaire" placeholder="Commentaire" type="text">
+                            </div>
+                            <div class="my-2 col-4">
+                                <input class="p-2 pl-4 input-form"  type="file" accept="image/*" name="image">
+                            </div>
+                            <div class="col-2"> </div>
+    
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <button class="p-2 button-submit my-2" type="submit">Ajouter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- end card show client-->
+    
+            <div class="col"> </div>
+        </div>
+    </div>
+{% endblock %}

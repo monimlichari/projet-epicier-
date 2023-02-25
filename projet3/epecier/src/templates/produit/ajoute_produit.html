@@ -1,0 +1,60 @@
+{% extends "layout/base_dashboard.html" %}
+{% block title %}Gestion produit{% endblock %}
+{% block content %}
+
+    <div class="d-flex h-100  align-items-center justify-content-center">
+        <div class="row p-0 m-0 ">
+            <div class="col"> </div>
+            <!-- card show client-->
+            <div class="col-10 cardStyle p-5">
+                <div class="row p-0 m-0 my-5 ">
+                    <div class="col-9"></div>
+                    <div class="col-3 cardStyle ">
+                        <div class="row d-flex justify-content-between ">
+                            <a href="/ajoute/produit/" class="text-center py-2 col-6  py-2 active ">Créer</a>
+                            <a style="padding-right:70px ;padding-left: 30px;" href="/affiche/produit/" class="text-center py-2 col-6  py-2">Gérer</a>
+                        </div>
+                    </div>
+    
+                    <div class="col"></div>
+    
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <h1 class="cardTitle text-center">Ajouter un nouveau Produit à votre carnet  </h1>
+                    <form method="post" enctype="multipart/form-data" action="/ajoute/produit/{{produit.id}}">
+                        {% csrf_token %}
+                        <div class="mt-5 col-12 row">
+                            <div class="col-2"> </div>
+                            <div class="my-2 col-4">
+                                <input class="p-2 pl-4 input-form" name="nom" placeholder="Nom" type="text">
+                            </div>
+                            <div class="my-2 col-4">
+                                <input class="p-2 pl-4 input-form" name="prix" placeholder="Prix" type="text">
+                            </div>
+                            <div class="col-2"> </div>
+                            <div class="col-2"> </div>
+                            <div class="my-2 col-4">
+                                <input class="p-2 pl-4 input-form" name="commentaire" placeholder="Commentaire" type="text">
+                            </div>
+                            <div class="my-2 col-4">
+                                <input class="p-2 pl-4 input-form" type="file" accept="image/*" name="image">
+                            </div>
+                            <div class="col-2"> </div>
+    
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <button class="p-2 button-submit my-2" type="submit">Ajouter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- end card show client-->
+    
+            <div class="col"> </div>
+        </div>
+    </div>
+{% endblock %}
